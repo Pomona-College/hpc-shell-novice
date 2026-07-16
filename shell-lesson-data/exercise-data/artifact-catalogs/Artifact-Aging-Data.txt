@@ -1,0 +1,6 @@
+Artifact ID, Material, Carbon Dating Result, Estimated Era
+A-1001, Wood, 7200 BP, Neolithic
+A-1002, Bone, 6900 BP, Late Neolithic
+A-1003, Charcoal, 7100 BP, Neolithic
+A-1004, Fabric, 6800 BP, Neolithic
+A-1005, Grain residues, 7000 BP, Neolithic

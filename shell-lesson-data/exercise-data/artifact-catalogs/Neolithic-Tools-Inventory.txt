@@ -1,0 +1,6 @@
+Tool ID, Description, Material, Estimated Age
+001, Hand Axe, Flint, 7500 years
+002, Chisel, Bone, 7200 years
+003, Scraper, Obsidian, 7000 years
+004, Arrowhead, Flint, 7100 years
+005, Hammerstone, Sandstone, 7300 years

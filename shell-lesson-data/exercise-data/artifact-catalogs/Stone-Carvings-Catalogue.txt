@@ -1,0 +1,5 @@
+Carving ID, Description, Motif, Discovery Date
+SC-101, Pillar with animal engravings, Predatory animals, 15-Mar-2021
+SC-102, Small stone plate, Abstract symbols, 20-Apr-2021
+SC-103, Large monolith, Geometric patterns, 02-May-2021
+SC-104, Decorated stone bowl, Birds and snakes, 10-May-2021

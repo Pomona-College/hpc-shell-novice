@@ -1,0 +1,5 @@
+Symbol ID, Interpretation, Frequency, Location
+SY-01, Solar deity representation, 15, Central Piazza
+SY-02, Fertility goddess, 9, Northern Trench
+SY-03, Water or rain symbol, 20, Eastern Sector
+SY-04, Harvest season, 12, Southern Hall
