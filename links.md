@@ -16,6 +16,6 @@
 [sagehen-wiki]: https://github.com/pomona-college-hpc "Sagehen HPC Workshop Series on GitHub"
 [ondemand-portal]: https://ondemand.hpc.pomona.edu "OnDemand HPC Portal"
 [its-contact]: mailto:its-hpc@pomona.edu "HPC Support Email"
-[pomona-its]: https://www.pomona.edu/its "Pomona College ITS"
+[pomona-its]: https://www.pomona.edu/its/ "Pomona College ITS"
 [carpentries]: https://carpentries.org "The Carpentries"
 [software-carpentry]: https://software-carpentry.org "Software Carpentry"

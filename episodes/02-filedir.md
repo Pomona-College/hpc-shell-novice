@@ -26,6 +26,7 @@ exercises: 10
 
 Introducing the shell's filesystem navigation (as detailed in the [Navigating Files and Directories](02-filedir.md) section) can be somewhat perplexing. It might be helpful to have both a terminal and a GUI file explorer open simultaneously. This allows learners to visually compare the file structure and content in the GUI with their actions in the terminal as they navigate the system.
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The **file system** is a crucial part of the operating system that manages files and directories. It organizes data into files, which store information, and directories (also known as 'folders'), which can contain files or other directories.
 
@@ -44,6 +45,7 @@ $ pwd
 Here,
 the computer's response is `/Users/cecil`,
 which is Cecil's **home directory**:
+
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -130,21 +132,7 @@ When your terminal becomes overly crowded, you can tidy it up with the `clear` c
 
 ### Discovering Command Help Options
 
-The `ls` command, like many others, offers a variety of **options** for its use. To learn about these options and how to utilize a command, there are generally two methods; though depending on your system, you might find that only one method is applicable:
-
-1. For systems like Linux and Git Bash, you can use the `--help` option with most commands to get an overview of their usage and options. Here's how you would use it with `ls`:
-
-   ```bash
-   $ ls --help
-   ```
-
-2. On Linux and macOS, you can access a command's manual using the `man` command, which provides detailed information about the command. To view the manual for `ls`, you would use:
-
-   ```bash
-   $ man ls
-   ```
-
-We will go into more detail on both of these methods in the following sections.
+The `ls` command, like many others, offers a variety of **options** for its use. To learn about these options and how to utilize a command, there are generally two methods, and the next two sections cover each in turn: the `--help` option (Linux and Git Bash) and the `man` command (Linux and macOS). Depending on your system, you might find that only one of them is applicable.
 
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -240,17 +228,21 @@ Additionally, GNU offers a comprehensive collection of [manuals](https://www.gnu
 
 ## Investigating Further Options in `ls`
 
-Try combining two options together. What outcome does `ls` produce with the `-l` option? And what happens when you combine the `-l` option with the `-h` option?
+Try combining two options together.
+
+What outcome does `ls` produce with the `-l` option? 
+
+And what happens when you combine the `-l` option with the `-h` option?
 
 While some of the information provided by these options, like file permissions and ownership, isn't covered in this lesson, the remaining details can still be quite informative.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
 ## Solution
 
 Using the `-l` option with `ls` enables a **l**ong format listing. This doesn't just show the names of files or directories but also additional details like file size and the time of the last modification. When you use `-h` along with `-l`, it formats the file size in a '**h**uman readable' manner, presenting sizes like `5.3K` instead of `5369`.
-
-:::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -261,6 +253,10 @@ Using the `-l` option with `ls` enables a **l**ong format listing. This doesn't 
 
 Normally, `ls` sorts the contents of a directory alphabetically by their names. However, if you use `ls -t`, it sorts files by the time of their last modification, not alphabetically. On the other hand, `ls -r` displays directory contents in reverse order. What file appears last when you use both the `-t` and `-r` options together? Tip: To view the dates of last modifications, you might need to include the `-l` option.
 
+![Exploring `ls` options on Sagehen: an invalid option error, long and human-readable listings, and time/reverse sorting — note the lab-storage symlinks pointing into /bigdata/lab/.](fig/02-sagehen-ls-options.png){alt='Sagehen terminal session. ls -j fails with invalid option. ls -l and ls -l -h show long-format listings with permissions, owner, group, and symlinks pointing to /bigdata/lab/awilsonlab. ls -t, ls -r, and ls -t -r -l show the same directory sorted by modification time and in reverse.'}
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::  solution
 
 ## Solution
@@ -268,8 +264,6 @@ Normally, `ls` sorts the contents of a directory alphabetically by their names. 
 When combining `-rt` with `ls`, the file that was most recently modified appears at the end of the list. This sorting method is particularly useful for identifying the latest changes you've made or for verifying whether a new output file has been created.
 
 :::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Navigating Across Different Directories
 
@@ -298,7 +292,7 @@ $ ls -F Desktop/shell-lesson-data
 ```
 
 ```output
-exercise-data/  gobekli-tepe-excavations/
+exercise-data/  gobekli-tepe-excavation/
 ```
 
 Second, we can change our current directory. The command `cd`, followed by a directory name, changes our working directory. `cd` stands for 'change directory'. It doesn't change the directory itself but changes the shell's setting of our current directory.
@@ -313,8 +307,6 @@ $ cd exercise-data
 
 These commands take us from the home directory to the Desktop, then into `shell-lesson-data`, and finally into `exercise-data`. Note that `cd` doesn't produce output when successful. Running `pwd` after `cd` shows we are now in `/Users/cecil/Desktop/shell-lesson-data/exercise-data`.
 
-Running `ls -F` without arguments now lists the contents of `/Users/cecil/Desktop/shell-lesson-data/exercise-data`:
-
 ```bash
 $ pwd
 ```
@@ -322,6 +314,7 @@ $ pwd
 ```output
 /Users/cecil/Desktop/shell-lesson-data/exercise-data
 ```
+Running `ls -F` without arguments now lists the contents of `/Users/cecil/Desktop/shell-lesson-data/exercise-data`:
 
 ```bash
 $ ls -F
@@ -364,7 +357,7 @@ $ ls -F -a
 ```
 
 ```output
-./  ../  exercise-data/  gobekli-tepe-excavations/
+./  ../  exercise-data/  gobekli-tepe-excavation/
 ```
 
 `-a` (show all) reveals files and directories starting with `.`, such as `..` (the parent directory). It also shows `.` (the current directory). These shortcuts are useful in many scenarios.
@@ -469,6 +462,7 @@ If you run `cd -` once more, you'll return to `~/Desktop/shell-lesson-data/exerc
 ## Navigating with Absolute and Relative Paths
 
 If Amanda is currently in `/Users/amelia/data`, which of the following commands can she use to return to her home directory, `/Users/amelia`?
+
 1. `cd .`
 2. `cd /`
 3. `cd /home/amelia`
@@ -478,6 +472,8 @@ If Amanda is currently in `/Users/amelia/data`, which of the following commands 
 7. `cd ~/data/..`
 8. `cd`
 9. `cd ..`
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -493,21 +489,23 @@ If Amanda is currently in `/Users/amelia/data`, which of the following commands 
 8. Yes: A direct shortcut to the user's home directory.
 9. Yes: Moves up one directory level to `/Users/amelia`.
 
-:::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Understanding Relative Path Commands
 
 Referencing the filesystem diagram provided, if the current directory shown by `pwd` is `/Users/thing`, what output will the command `ls -F ../backup` produce?
+
 1. `../backup: No such file or directory`
 2. `2012-12-01 2013-01-08 2013-01-27`
 3. `2012-12-01/ 2013-01-08/ 2013-01-27/`
 4. `original/ pnas_final/ pnas_sub/`
 
 ![](fig/filesystem-challenge.svg){alt='A directory tree under the Users directory. "/Users" contains "backup" and "thing". "/Users/backup" has "original", "pnas_final", and "pnas_sub". "/Users/thing" contains "backup", and "/Users/thing/backup" holds "2012-12-01", "2013-01-08", and "2013-01-27"'}
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -519,8 +517,6 @@ Referencing the filesystem diagram provided, if the current directory shown by `
 4. Yes: `../backup/` refers to the `backup` directory at `/Users/backup/`.
 
 :::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -537,6 +533,8 @@ pnas_sub/ pnas_final/ original/
 2. `ls -r -F`
 3. `ls -r -F /Users/backup`
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::  solution
 
 ## Solution
@@ -546,8 +544,6 @@ pnas_sub/ pnas_final/ original/
 3. Yes: This explicitly specifies the absolute path to list in reverse order.
 
 :::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Breaking Down a Shell Command's Structure
 
@@ -604,6 +600,7 @@ Network/              Volumes/
 ### Deciding Between Short and Long Command Options
 
 When you have the choice of using either short or long options for command-line operations:
+
 - When typing commands directly into the shell, use short options. This strategy minimizes keystrokes and speeds up your workflow.
 - For scripting purposes, lean towards long options. They provide better clarity and enhance readability, which is crucial as scripts are typically read more frequently than they are written.
 
@@ -613,14 +610,14 @@ When you have the choice of using either short or long options for command-line 
 
 With his knowledge of files and directories, Cecil is set to organize the upcoming files from the protein assay machine.
 
-He creates a directory named `gobekli-tepe-excavations`, reminding him of the data's origin. This directory will house both the data files from the assay machine and his data processing scripts.
+He creates a directory named `gobekli-tepe-excavation`, reminding him of the data's origin. This directory will house both the data files from the assay machine and his data processing scripts.
 
 Each of Cecil's samples carries a unique ten-character ID following his lab's system, such as 'NENE01729A'. He utilized this ID in his collection log to note the sample's location, time and other details. Thus, he decides to incorporate these IDs into the filenames of each data file. Given that the assay machine outputs plain text, he names his files `NENE01729A.txt`, `NENE01812A.txt`, and so on, with all 1520 files going into the same directory.
 
 Now, in his current directory `shell-lesson-data`, Cecil can view his files with the command:
 
 ```bash
-$ ls gobekli-tepe-excavations/
+$ ls gobekli-tepe-excavation/
 ```
 
 While this command is a bit lengthy, Cecil can use **tab completion** to let the shell do most of the typing. If he types:
@@ -632,22 +629,22 @@ $ ls gob
 and presses <kbd>Tab</kbd>, the shell completes the directory name:
 
 ```bash
-$ ls gobekli-tepe-excavations/
+$ ls gobekli-tepe-excavation/
 ```
 
 Pressing <kbd>Tab</kbd> again doesn't change the output, as multiple possibilities exist. However, pressing <kbd>Tab</kbd> twice will list all the files.
 
-If Cecil then types <kbd>G</kbd> and presses <kbd>Tab</kbd>, the shell will add 'goo' because all files starting with 'g' share these initial characters:
+If Cecil then types <kbd>a</kbd> and presses <kbd>Tab</kbd>, the shell will add 'ancient' because both script names start with those characters:
 
 ```bash
-$ ls gobekli-tepe-excavations/goo
+$ ls gobekli-tepe-excavation/ancient
 ```
 
 To display these files, he can press <kbd>Tab</kbd> twice again:
 
 ```bash
-ls gobekli-tepe-excavations/goo
-goodiff.sh   goostats.sh
+ls gobekli-tepe-excavation/ancient
+ancientdiff.sh   ancientstats.sh
 ```
 
 This feature is known as **tab completion** and is a common convenience across many shell tools.

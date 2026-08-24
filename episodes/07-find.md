@@ -22,11 +22,10 @@ exercises: 20
 
 Just as "Google" has become synonymous with online searching, Unix users often use "grep" as the verb for text searching within files. The term "grep" originates from 'global/regular expression/print', a common command sequence in early Unix text processing. It's also a command-line utility for pattern matching.
 
-`grep` is used to search for and display lines in files that match a given pattern. In our demonstrations, we'll use a file containing three haikus from a 1998 *Salon* magazine competition (Credit to Bill Torcaso, Howard Korder, and Margaret Segall). We'll be working within the `writing` subdirectory for these examples:
+`grep` is used to search for and display lines in files that match a given pattern. In our demonstrations, we'll use a file containing three haikus from a 1998 *Salon* magazine competition (Credit to Bill Torcaso, Howard Korder, and Margaret Segall). We'll be working in the `research-notes` subdirectory of `shell-lesson-data`. Navigate there from wherever you unpacked `shell-lesson-data` -- for example, if it's on your Desktop:
 
 ```bash
-$ cd
-$ cd Desktop/shell-lesson-data/exercise-data/research-notes
+$ cd ~/Desktop/shell-lesson-data/exercise-data/research-notes
 $ cat haiku.txt
 ```
 
@@ -100,12 +99,16 @@ For a recursive search with `grep`, use the `-r` option. Here's how to recursive
 
 ```bash
 $ grep -r Yesterday .
+
+
 ```
 
 ```output
 ./LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a mouse...
 ./haiku.txt:Yesterday it worked
 ```
+
+![`grep -r Yesterday .` finds matches in both `haiku.txt` and `LittleWomen.txt` — the real run returns three novel lines.](fig/07-grep-recursive-yesterday.png){alt='Terminal session running grep -r Yesterday dot in research-notes. The output shows the haiku line Yesterday it worked and three sentences from LittleWomen.txt containing the word Yesterday, each prefixed with the filename.'}
 
 `grep` has numerous options. For a comprehensive list, consult `grep`'s help:
 
@@ -206,7 +209,7 @@ cut -d : -f 2
 
 Hints: Refer to `man grep` for recursive text search in directories and `man cut` for selecting multiple fields.
 
-An example file is in `shell-lesson-data/exercise-data/excavation-sites/Gobekli-Tepe-Site-Data.csv`.
+Example data in exactly this format is in `shell-lesson-data/exercise-data/animal-observations/`. Once you have assembled your command into a script, test it from inside that directory with `bash count-species.sh rabbit .` -- you should get the `rabbit.txt` shown above.
 
 :::::::::::::::  solution
 
@@ -298,6 +301,8 @@ To begin, let's execute `find .` within the `shell-lesson-data/exercise-data` di
 ```bash
 $ find .
 ```
+
+![A compact variant of the loop (using `wc -w` on `grep -o` output): 1355, 683, 459, 645 — Jo, Meg, Beth, Amy in order.](fig/07-littlewomen-loop-counts.png){alt='Terminal session with a for loop over the names Jo, Meg, Beth, and Amy piping whole-word grep matches from LittleWomen.txt into a word count. The four output numbers are 1355, 683, 459, and 645, showing Jo is mentioned most often.'}
 
 ```output
 .
@@ -439,6 +444,7 @@ $ grep "searching" $(find . -name "*.txt")
 ## Filtering Out Specific Data
 
 The `-v` option in `grep` reverses the pattern matching, showing lines that *do not* match the given pattern. Which command could be used to list all `.dat` files in the `pottery-types` directory, excluding `Mid-Neolithic-Vessels.dat`? Experiment with your options in the relevant directory.
+
 1. `find pottery-types -name "*.dat" | grep -v "Mid-Neolithic-Vessels"`
 2. `find pottery-types -name *.dat | grep -v "Mid-Neolithic-Vessels"`
 3. `grep -v "Mid-Neolithic-Vessels" $(find pottery-types -name "*.dat")`
@@ -489,6 +495,8 @@ wc -l $(find . -name "*.dat") | sort -n
 1. Searches for all `.dat` files starting from the current directory.
 2. Counts the number of lines in each of these files.
 3. Sorts the results numerically, displaying the files from least to most number of lines.
+
+![All three candidate commands run live: the two `find | grep -v` forms filter names; the `$()` form greps file contents instead — and reveals two data files are identical.](fig/07-find-grep-filter-dat.png){alt='Terminal session running the three options from the filtering challenge. The first two commands each list Early-Neolithic-Pottery.dat and Late-Neolithic-Decor.dat. The third prints every line of the matched files prefixed by filename, showing that Late-Neolithic-Decor.dat and Mid-Neolithic-Vessels.dat contain identical VesselID records.'}
 
 :::::::::::::::::::::::::
 

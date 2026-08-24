@@ -84,6 +84,8 @@ To list all contents within a directory, including those in subdirectories, we c
 $ ls -FR ../project
 ```
 
+![Creating `thesis` and the nested `project/data` and `project/results` tree, verified with `ls -FR`.](fig/03-mkdir-thesis-project.png){alt='Terminal session inside research-notes. mkdir thesis is followed by ls -F showing LittleWomen.txt, haiku.txt, and thesis. mkdir -p creates project/data and project/results, and ls -FR lists the nested empty directories.'}
+
 ```output
 ../project/:
 data/  results/
@@ -106,7 +108,8 @@ The process of creating a directory in the shell is functionally the same as doi
 ## Effective Naming Conventions for Files and Directories
 
 Selecting clear and simple names for your files and directories can greatly simplify working with the command line. Consider these tips for efficient naming:
-1. Skip Spaces: Spaces can improve readability but may cause complications on the command line, where spaces are typically used to separate arguments. Opt for hyphens (`-`) or underscores (`_`) instead. For example, use `gobekli-tepe-excavations/` instead of `gobekli tepe excavations/`. Experiment by running `mkdir north pacific gyre` and observe the outcome with `ls -F`.
+
+1. Skip Spaces: Spaces can improve readability but may cause complications on the command line, where spaces are typically used to separate arguments. Opt for hyphens (`-`) or underscores (`_`) instead. For example, use `gobekli-tepe-excavation/` instead of `gobekli tepe excavations/`. Experiment by running `mkdir north pacific gyre` and observe the outcome with `ls -F`.
 2. Avoid Leading `-`: Names that start with `-` can be misinterpreted as options in many commands.
 3. Stick to Safe Characters: Use letters, numbers, periods (`.`), hyphens (`-`), and underscores (`_`) for better compatibility with command line operations. Other symbols can have special meanings and lead to unexpected behavior or even loss of data.
 
@@ -118,6 +121,7 @@ For file or directory names containing spaces or special characters, enclosing t
 
 Learners often accidentally enter text editors like Vim, Emacs, or Nano on the command line and struggle to exit. Restarting the terminal can be bothersome, especially as it means re-navigating to the right directory. To help prevent this, instructors should consider using the same text editor as their learners, which is typically Nano, during workshops.
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Generating a Text File
 
@@ -127,6 +131,8 @@ Next, we'll change our working directory to `thesis` with the `cd` command and p
 $ cd thesis
 $ nano draft.txt
 ```
+
+
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -364,6 +370,7 @@ cp: -r not specified; omitting directory 'thesis'
 Imagine you've created a text file in your current directory to list the statistical tests for your data analysis, but you accidentally named it `statstics.txt`.
 
 To correct this spelling error, which command would be appropriate?
+
 1. `cp statstics.txt statistics.txt`
 2. `mv statstics.txt statistics.txt`
 3. `mv statstics.txt .`
@@ -412,6 +419,7 @@ $ ls
 ```
 
 Options:
+
 1. `proteins-saved.dat recombined`
 2. `recombined`
 3. `proteins.dat recombined`
@@ -426,6 +434,7 @@ Next, the `mv` command relocates `proteins.dat` into `recombined`.
 Then, `cp` duplicates this file to one level up from the current directory, resulting in `/Users/jamie/proteins-saved.dat`.
 The key point is understanding the destination of the copied file, which is determined relative to the current directory, not the source file's location.
 Thus, in `/Users/jamie/data`, the only item displayed by `ls` will be the `recombined` folder.
+
 1. No, as `proteins-saved.dat` is in `/Users/jamie`
 2. Yes
 3. No, `proteins.dat` is now in `/Users/jamie/data/recombined`
@@ -474,6 +483,8 @@ What occurs if we run `rm -i thesis_backup/quotations.txt`? Why is this cautiona
 ```output
 rm: remove regular file 'thesis_backup/quotations.txt'? y
 ```
+
+![`rm -i` in action: the shell asks before deleting, and a final `ls` confirms the file is gone.](fig/03-rm-interactive-thesis-backup.png){alt='Terminal session where cp without -r fails on a directory, then rm -i prompts remove regular file thesis_backup/quotations.txt before deleting after the user types y. A final ls shows the directory is empty.'}
 
 Utilizing the `-i` option with `rm` prompts for confirmation before deleting each file (respond with <kbd>Y</kbd> to confirm deletion, or <kbd>N</kbd> to cancel). As the Unix shell lacks a trash bin, any deleted files are irrevocably lost. The `-i` option provides an opportunity to double-check that you're deleting only the files you intend to, adding a layer of protection against accidental data loss.
 
@@ -570,7 +581,7 @@ In shell operations, the `*` symbol is a **wildcard** that represents any sequen
 
 The `?` wildcard stands for any single character. Therefore, `?illar-Symbols-Analysis.txt` could match `Pillar-Symbols-Analysis.txt`, while `*illar-Symbols-Analysis.txt` would also match the same file.
 
-Wildcards can be combined to create patterns like `???-Symbols-Analysis.txt`, which matches files like `Pillar-Symbols-Analysis.txt`, assuming the filename begins with any three characters followed by `-Symbols-Analysis.txt`.
+Wildcards can be combined to create patterns like `??????-Symbols-Analysis.txt`, which matches files like `Pillar-Symbols-Analysis.txt`, assuming the filename begins with any six characters followed by `-Symbols-Analysis.txt`.
 
 Before executing a command, the shell expands these wildcards to a list of filenames that match the given patterns. If a pattern does not match any existing file, Bash typically reports an error. For example, trying `ls *.pdf` in the `artifact-catalogs` directory, which only contains `.txt` files, would result in an error. It's crucial to understand that wildcard expansion is handled by the shell itself, not by individual commands such as `wc` or `ls`.
 
@@ -585,8 +596,9 @@ Given the `artifact-catalogs` directory, which `ls` command(s) would list the fo
 `Artifact-Aging-Data.txt   Excavation-Finds-Report.txt`
 
 Options:
+
 1. `ls *a*a*.txt`
-2. `ls *a??a*.txt`
+2. `ls *ti*.txt`
 3. `ls *a???-F*.txt`
 4. `ls Artifact-*.txt`
 
@@ -596,14 +608,13 @@ Options:
 
 The correct option is `2.`
 
-`1.` matches files with any characters (`*`) before and after the sequence `a*a`, ending in `.txt`. This pattern could include all files containing 'a' followed later by another 'a' and `.txt`, which is too broad for the specified output.
+`1.` matches files with any characters (`*`) before and after the sequence `a*a`, ending in `.txt`. This is too broad — it also catches `Pillar-Symbols-Analysis.txt` and `Stone-Carvings-Catalogue.txt`, which each contain two lowercase `a`s.
 
-`2.` accurately matches files with any characters before `a`, exactly two characters between `a` and another `a`, and any sequence of characters after, ending with `.txt`. This fits `Artifact-Aging-Data.txt` but not `Excavation-Finds-Report.txt`, making it incorrect.
+`2.` is the correct answer. Only `Artifact-Aging-Data.txt` and `Excavation-Finds-Report.txt` contain the sequence `ti`, so the pattern matches exactly the two files listed and nothing else.
 
-`3.` targets files starting with any characters, followed by `a`, then exactly three characters, `-F`, and any characters, ending with `.txt`. This pattern does not match the files listed, hence incorrect.
+`3.` targets files starting with any characters, followed by `a`, then exactly three characters, `-F`, and any characters, ending with `.txt`. No file in the directory matches — `Excavation-Finds-Report.txt` has four characters (`tion`) between `a` and `-F` — so this lists nothing.
 
-`4.` is the correct answer as it specifically matches files starting with `Artifact-` and ending with `.txt`, which includes `Artifact-Aging-Data.txt`. However, for `Excavation-Finds-Report.txt`, none of the options correctly match only the two files listed, indicating a need for revision to fit the new folder and file names.
-
+`4.` matches files starting with `Artifact-` and ending with `.txt`, which gives `Artifact-Aging-Data.txt` only. It misses `Excavation-Finds-Report.txt`.
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -770,12 +781,15 @@ Let's say the previous experiment's data is in a folder named `2016-05-18`, cont
 
 Which command set would successfully create this structure, and what would the other commands result in?
 
+1.
+
 ```bash
 $ mkdir 2016-05-20
 $ mkdir 2016-05-20/data
 $ mkdir 2016-05-20/data/processed
 $ mkdir 2016-05-20/data/raw
 ```
+2.
 
 ```bash
 $ mkdir 2016-05-20
@@ -784,16 +798,19 @@ $ mkdir data
 $ cd data
 $ mkdir raw processed
 ```
+3.
 
 ```bash
 $ mkdir 2016-05-20/data/raw
 $ mkdir 2016-05-20/data/processed
 ```
+4.
 
 ```bash
 $ mkdir -p 2016-05-20/data/raw
 $ mkdir -p 2016-05-20/data/processed
 ```
+5.
 
 ```bash
 $ mkdir 2016-05-20
@@ -807,6 +824,7 @@ $ mkdir raw processed
 ## Solution to Creating a New Directory Structure
 
 Both the first two command sets and the fourth set of commands fulfill the goal, creating the required directory structure.
+
 - The first set explicitly creates each directory using relative paths, starting from the top-level directory down to its subdirectories.
 - The second set accomplishes the task with navigation, creating each part of the structure step by step.
 - The third command set will not work as intended because `mkdir` cannot create a subdirectory (`raw` or `processed`) within a non-existent intermediate directory (`data`) without additional options.

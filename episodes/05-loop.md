@@ -62,6 +62,8 @@ MNV-010, Round bowl, Culinary, 2021-04-10
 
 This demonstrates how loops can streamline the process of performing repetitive tasks on multiple files, making it easier to manage and analyze large datasets.
 
+![The loop live in the pottery-types directory: each filename echoed, then its second line.](fig/05-loop-head-tail-pottery.png){alt='Terminal session in exercise-data/pottery-types. A for loop iterates over three .dat files, echoing each filename and printing the second line of each with head piped to tail.'}
+
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Understanding Shell Prompts
@@ -198,6 +200,7 @@ $ for filename in A*
 ```
 
 Options:
+
 1. No files are listed.
 2. All files are listed.
 3. Only `Artifact-Aging-Data.txt` is listed.
@@ -221,6 +224,7 @@ $ for filename in *A*
 ```
 
 Options for its output:
+
 1. The same files as before are listed.
 2. All files are listed.
 3. No files are listed.
@@ -252,7 +256,8 @@ done
 ```
 
 Options:
-1. Lists all `.txt` files, saving the content of the last file processed to `combined-logs.txt`.
+
+1. Lists all `.txt` files, saving the content of the first file processed to `combined-logs.txt`.
 2. Lists all `.txt` files, combining their contents into `combined-logs.txt`.
 3. Lists `Animal-Figurines-List.txt`, `Artifact-Aging-Data.txt`, `Excavation-Finds-Report.txt`, `Neolithic-Tools-Inventory.txt`, `Pillar-Symbols-Analysis.txt`, and `Stone-Carvings-Catalogue.txt`, with only `Stone-Carvings-Catalogue.txt`'s content in `combined-logs.txt`.
 4. None of the above.
@@ -281,7 +286,8 @@ done
 ```
 
 Options:
-1. Merges the content from all `.txt` files into a single file named `all-records.txt`.
+
+1. Overwrites all-records.txt on each iteration, so it ends up containing only the last file's content.
 2. Copies the content of `Artifact-Aging-Data.txt` into `all-records.txt`.
 3. Concatenates the content from `Animal-Figurines-List.txt`, `Artifact-Aging-Data.txt`, `Excavation-Finds-Report.txt`, `Neolithic-Tools-Inventory.txt`, `Pillar-Symbols-Analysis.txt`, and `Stone-Carvings-Catalogue.txt` into `all-records.txt`.
 4. Displays the content of all `.txt` files on the screen and saves it to `all-records.txt`.
@@ -331,7 +337,7 @@ Early Neolithic Pottery.dat
 Late Neolithic Decor.dat
 ```
 
-Loop execution would require quotes:
+Loop execution would require quotes. (Copies of these two files live in `exercise-data/spaces-demo/`, so you can try this yourself with `cd ../spaces-demo`.)
 
 ```bash
 $ for filename in "Early Neolithic Pottery.dat" "Late Neolithic Decor.dat"
@@ -373,7 +379,7 @@ Illustrated here, the process underscores the necessity of `echo` for verifying 
 
 ## Cecil's Pipeline: Script Execution
 
-Cecil proceeds to analyze his data with `ancientstats.sh`, a script that computes statistics from protein sample files, requiring an input and an output file. Initially, he verifies file selection accuracy, focusing on files ending in 'A' or 'B':
+Cecil proceeds to analyze their data with `ancientstats.sh`, a script that computes statistics from protein sample files, requiring an input and an output file. Initially, they verify file selection accuracy, focusing on files ending in 'A' or 'B':
 
 ```bash
 $ cd gobekli-tepe-excavation
@@ -392,13 +398,13 @@ $ for file in NENE*A.txt NENE*B.txt
 > done
 ```
 
-Before running `ancientstats.sh`, she tests command generation using `echo`. Once confident, he replaces `echo` with the actual script execution command:
+Before running `ancientstats.sh`, they test command generation using `echo`. Once confident, they replace `echo` with the actual script execution command:
 
 ```bash
 $ for file in NENE*A.txt NENE*B.txt; do bash ancientstats.sh $file stats-$file; done
 ```
 
-However, the lack of immediate feedback prompts her to reintroduce `echo` for progress monitoring. Adjusting the loop accordingly, he ensures visibility of the ongoing process:
+However, the lack of immediate feedback prompts them to reintroduce `echo` for progress monitoring. Adjusting the loop accordingly, they ensure visibility of the ongoing process:
 
 ```bash
 $ for file in NENE*A.txt NENE*B.txt; do echo $file; bash ancientstats.sh $file stats-$file; done
@@ -414,7 +420,7 @@ Quickly move to the command line's beginning with <kbd>Ctrl</kbd>+<kbd>A</kbd> a
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Cecil's execution of her data processing script indicates it will complete in about two hours. She verifies the output quality in another terminal window and, satisfied, takes a well-deserved break.
+Cecil's execution of their data processing script indicates it will complete in about two hours. They verify the output quality in another terminal window and, satisfied, take a well-deserved break.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -429,6 +435,7 @@ Leveraging `history` to view and execute past commands is another efficient way 
 ## Enhancing Command History Interaction
 
 Several shortcuts enhance interaction with the command history:
+
 - <kbd>Ctrl</kbd>+<kbd>R</kbd> initiates a reverse search ('reverse-i-search') to locate the most recent command matching entered text. Press <kbd>Ctrl</kbd>+<kbd>R</kbd> again to find earlier matches. Use the left and right arrow keys to edit the command before execution.
 - `!!` fetches the last command executed, offering an alternative to the up-arrow key for repetition.
 - `!$` captures the last word of the previous command, useful for quick reference to files or directories in subsequent commands.
@@ -443,7 +450,7 @@ To prevent errors when executing loops, especially with file modifications, a "d
 
 **Version 1:**
 ```bash
-$ for file in *.txt
+$ for file in *.pdb
 > do
 >     echo cat $file >> all.txt
 > done
@@ -451,23 +458,22 @@ $ for file in *.txt
 
 **Version 2:**
 ```bash
-$ for file in *.txt
+$ for file in *.pdb
 > do
 >     echo "cat $file >> all.txt"
 > done
 ```
 
-The second version accurately displays the intended commands without affecting `all.txt`, treating the redirection as part of a string rather than executing it. The first version, however, misleadingly suggests that `echo` commands would append to `all.txt`.
-
 :::::::::::::::  solution
 
 ## Choosing the Correct Version for Preview
 
-Version 2 is preferred for a dry run to accurately preview the commands without altering `all.txt`. It demonstrates how enclosing commands within quotes with `echo` can simulate command execution for verification purposes.
+The first version is not a true dry run: because the `>>` is left unquoted, bash treats it as real redirection and appends lines like `cat basilisk.pdb` into `all.txt`.
+
+Version 2, however, is the correct dry run: enclosing the command in quotes means `echo` displays it without executing the redirection, so `all.txt` is untouched.
 
 :::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -484,6 +490,8 @@ $ for compound in cubane ethane methane
 >     done
 > done
 ```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 

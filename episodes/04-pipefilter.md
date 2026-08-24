@@ -285,6 +285,7 @@ $ tail -n 2 Gobekli-Tepe-Site-Data.csv >> Gobekli-Tepe-Subset.csv
 ```
 
 Options:
+
 1. The top three lines from `Gobekli-Tepe-Site-Data.csv`.
 2. The bottom two lines from `Gobekli-Tepe-Site-Data.csv`.
 3. The first three lines and the last two lines of `Gobekli-Tepe-Site-Data.csv`.
@@ -324,6 +325,8 @@ First, we pipe `wc`'s output to `sort`:
 $ wc -l *.txt | sort -n
 ```
 
+![Counting with `wc *.txt`, then piping `wc -l` into `sort -n` to order the catalog files by length.](fig/04-wc-sort-pipeline.png){alt='Terminal session in artifact-catalogs. wc *.txt lists line, word, and character counts for six catalog files with a total of 57 lines. The pipeline wc -l *.txt piped to sort -n shows the files ordered by line count with Animal-Figurines-List.txt largest at 30 lines.'}
+
 ```output
    5 Excavation-Finds-Report.txt
    5 Pillar-Symbols-Analysis.txt
@@ -357,6 +360,7 @@ The conceptual flow of these redirections and pipes is captured in the diagram b
 In the current directory, we aim to pinpoint the three files with the smallest number of lines. Which of the following commands accomplishes this?
 
 Options:
+
 1. `wc -l * > sort -n > head -n 3`
 2. `wc -l * | sort -n | head -n 1-3`
 3. `wc -l * | head -n 3 | sort -n`
@@ -444,7 +448,7 @@ Here, `cut` removes sections from each line, using the comma as a delimiter (`-d
   Central Piazza
 ```
 
-To refine this list to unique site data names, how would you extend this command sequence using `uniq` and another command?
+To refine this list to unique site data names (in this case they are already unique, but imagine two sites both in South Sector: uniq would remove one of them, leaving a single line), how would you extend this command sequence using `uniq` and another command?
 
 :::::::::::::::  solution
 
@@ -465,6 +469,7 @@ This sequence cuts out site data names, sorts them (a prerequisite for `uniq`), 
 ## Identifying Unique site data
 
 Given `Gobekli-Tepe-Site-Data.csv` with multiple entries per location, use commands to count each location occurrences. Consider `uniq`'s `-c` option for counting occurrences. Which command sequence accurately counts each site data type?
+
 1. `sort Gobekli-Tepe-Site-Data.csv | uniq -c`
 2. `sort -t, -k2,2 Gobekli-Tepe-Site-Data.csv | uniq -c`
 3. `cut -d, -f 2 Gobekli-Tepe-Site-Data.csv | uniq -c`
@@ -483,7 +488,7 @@ Option 4 accurately counts each locations. It extracts the location names, sorts
 
 ## Cecil's Pipeline: Data Verification
 
-Cecil, working on her `gobekli-tepe-excavation` project, uses the following commands to check her data files:
+Cecil, working on their `gobekli-tepe-excavation` project, uses the following commands to check their data files:
 
 ```bash
 $ cd gobekli-tepe-excavation
@@ -502,7 +507,7 @@ Discovering a file with fewer lines, Cecil deduces it resulted from a machine er
 $ wc -l *.txt | sort -n | tail -n 5
 ```
 
-Spotting an aberrant 'Z' in a filename, he identifies it as a marker for missing information. To find similar cases:
+Spotting an aberrant 'Z' in a filename, they identify it as a marker for missing information. To find similar cases:
 
 ```bash
 $ ls *Z.txt
@@ -515,6 +520,7 @@ Confirming missing data, Cecil opts to exclude these files from his analysis, pl
 ## Cleanup Processed Data
 
 Imagine wanting to keep only raw data files (`.dat`) and a processing script, removing processed files (`.txt`) to save space. Which command removes only the processed data files?
+
 1. `rm ?.txt`
 2. `rm *.txt`
 3. `rm * .txt`
@@ -539,7 +545,7 @@ Imagine wanting to keep only raw data files (`.dat`) and a processing script, re
 - `tail` reveals the last 10 lines.
 - `command > [file]` directs output to a file, overwriting existing content.
 - `command >> [file]` appends output to a file.
-- `[first] | [second] creates a pipeline, using the output of the first command as input for the second.
+- `[first] | [second]` creates a pipeline, using the output of the first command as input for the second.
 - Combining simple, focused programs into pipelines epitomizes the shell's most effective usage.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

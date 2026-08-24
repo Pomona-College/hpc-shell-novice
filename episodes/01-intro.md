@@ -96,6 +96,8 @@ $ ks
 ks: command not found
 ```
 
+![On Sagehen: a first `ls`, then the error the shell prints for a mistyped command.](fig/01-sagehen-ls-command-not-found.png){alt='Terminal on the Sagehen cluster. The ls command lists directories including code, data, projects, and workshop-0. A second command, ks, returns the error bash: ks: command not found, and the prompt returns.'}
+
 This might happen if the command was mis-typed or if the program corresponding to that command
 is not installed.
 
@@ -110,9 +112,9 @@ Manually running `ancientstats.sh` for each of the 1520 reports would be extreme
 
 The upcoming lessons will delve into how Cecil can use a command shell to automate running the `ancientstats.sh` program. We'll explore how loops can help automate the repetitive task of inputting file names, allowing his computer to process the data while he works on his paper.
 
-An added advantage is that once Cecil constructs this processing pipeline, he can easily reuse it for any future data he collects.
+An added advantage is that once Cecil constructs this processing pipeline, they can easily reuse it for any future data he collects.
 
-To successfully accomplish his objective, Cecil needs to learn how to:
+To successfully accomplish their objective, Cecil needs to learn how to:
 
 - Navigate to specific files or directories
 - Create new files or directories
@@ -120,7 +122,7 @@ To successfully accomplish his objective, Cecil needs to learn how to:
 - Chain multiple commands together
 - Retrieve a specific set of files
 - Iterate over a series of files
-- Execute a shell script containing his analysis pipeline
+- Execute a shell script containing their analysis pipeline
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
