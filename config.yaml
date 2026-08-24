@@ -12,6 +12,7 @@ carpentry: 'incubator'
 
 # Overall title for pages.
 title: 'The Unix Shell — Pomona College HPC Workshop Series'
+description: 'The Unix shell for HPC users — files, pipes, loops and scripts. Adapted from Software Carpentry for the Sagehen cluster at Pomona College.'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2014-10-22'
