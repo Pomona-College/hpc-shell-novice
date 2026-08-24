@@ -13,7 +13,7 @@
 [command-substitution]: https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html "Bash Command Substitution"
 [pipes-redirection]: https://www.gnu.org/software/bash/manual/html_node/Redirections.html "Bash Redirections"
 [file-globbing]: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html "Bash Filename Expansion"
-[sagehen-wiki]: https://github.com/pomona-college-hpc "Sagehen HPC Workshop Series on GitHub"
+[sagehen-wiki]: https://github.com/Pomona-College "Sagehen HPC Workshop Series on GitHub"
 [ondemand-portal]: https://ondemand.hpc.pomona.edu "OnDemand HPC Portal"
 [its-contact]: mailto:its-hpc@pomona.edu "HPC Support Email"
 [pomona-its]: https://www.pomona.edu/its/ "Pomona College ITS"

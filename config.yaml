@@ -27,7 +27,7 @@ life_cycle: 'stable'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/pomona-college-hpc/shell-novice'
+source: 'https://github.com/Pomona-College/hpc-shell-novice'
 
 # Default branch of your lesson
 branch: 'main'
@@ -82,5 +82,5 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: 'https://pomona-college-hpc.github.io/shell-novice'
+url: 'https://pomona-college.github.io/hpc-shell-novice/'
 lang: en
