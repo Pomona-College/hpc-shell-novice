@@ -50,7 +50,7 @@ try an online search for: Unix shell [your computer model] [your operating syste
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::: solution
+::::::::::::  spoiler
 
 ### Windows {#windows}
 
@@ -72,7 +72,7 @@ from those shown in the lesson or presented in the workshop.
 
 ::::::::::::
 
-:::::::::::: solution
+::::::::::::  spoiler
 
 ### MacOS {#macos}
 
@@ -96,7 +96,7 @@ you can run it by opening a terminal and typing `bash`.
 
 ::::::::::::
 
-:::::::::::: solution
+::::::::::::  spoiler
 
 ### Linux {#linux}
 

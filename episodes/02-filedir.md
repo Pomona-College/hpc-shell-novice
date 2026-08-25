@@ -236,7 +236,6 @@ And what happens when you combine the `-l` option with the `-h` option?
 
 While some of the information provided by these options, like file permissions and ownership, isn't covered in this lesson, the remaining details can still be quite informative.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -244,6 +243,7 @@ While some of the information provided by these options, like file permissions a
 
 Using the `-l` option with `ls` enables a **l**ong format listing. This doesn't just show the names of files or directories but also additional details like file size and the time of the last modification. When you use `-h` along with `-l`, it formats the file size in a '**h**uman readable' manner, presenting sizes like `5.3K` instead of `5369`.
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -255,7 +255,6 @@ Normally, `ls` sorts the contents of a directory alphabetically by their names. 
 
 ![Exploring `ls` options on Sagehen: an invalid option error, long and human-readable listings, and time/reverse sorting — note the lab-storage symlinks pointing into /bigdata/lab/.](fig/02-sagehen-ls-options.png){alt='Sagehen terminal session. ls -j fails with invalid option. ls -l and ls -l -h show long-format listings with permissions, owner, group, and symlinks pointing to /bigdata/lab/awilsonlab. ls -t, ls -r, and ls -t -r -l show the same directory sorted by modification time and in reverse.'}
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -264,6 +263,7 @@ Normally, `ls` sorts the contents of a directory alphabetically by their names. 
 When combining `-rt` with `ls`, the file that was most recently modified appears at the end of the list. This sorting method is particularly useful for identifying the latest changes you've made or for verifying whether a new output file has been created.
 
 :::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Navigating Across Different Directories
 
@@ -473,7 +473,6 @@ If Amanda is currently in `/Users/amelia/data`, which of the following commands 
 8. `cd`
 9. `cd ..`
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -491,6 +490,7 @@ If Amanda is currently in `/Users/amelia/data`, which of the following commands 
 
 
 :::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -505,7 +505,6 @@ Referencing the filesystem diagram provided, if the current directory shown by `
 
 ![](fig/filesystem-challenge.svg){alt='A directory tree under the Users directory. "/Users" contains "backup" and "thing". "/Users/backup" has "original", "pnas_final", and "pnas_sub". "/Users/thing" contains "backup", and "/Users/thing/backup" holds "2012-12-01", "2013-01-08", and "2013-01-27"'}
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -517,6 +516,7 @@ Referencing the filesystem diagram provided, if the current directory shown by `
 4. Yes: `../backup/` refers to the `backup` directory at `/Users/backup/`.
 
 :::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -533,7 +533,6 @@ pnas_sub/ pnas_final/ original/
 2. `ls -r -F`
 3. `ls -r -F /Users/backup`
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::  solution
 
@@ -544,6 +543,7 @@ pnas_sub/ pnas_final/ original/
 3. Yes: This explicitly specifies the absolute path to list in reverse order.
 
 :::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Breaking Down a Shell Command's Structure
 
