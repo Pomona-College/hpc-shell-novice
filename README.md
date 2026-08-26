@@ -60,3 +60,11 @@ is MIT.
 ## Contact
 
 Pomona College ITS Research Computing — <its-hpc@pomona.edu>
+
+## Acknowledgments
+
+**Andrew Wilson** — Director of Research Computing and Digital Scholarship,
+Pomona College. Workshop design and development.
+
+**Andrei Motchenko** — testing, editing, cleanup and screenshots across the
+Pomona College HPC Workshop Series.

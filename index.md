@@ -46,7 +46,10 @@ searching for files with `grep` and `find`, and writing simple loops
 and scripts, you probably want to explore the next lesson:
 [shell-extras](https://carpentries-incubator.github.io/shell-extras/).
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Acknowledgments
 
+Developed by **Andrew Wilson**, Director of Research Computing and Digital
+Scholarship at Pomona College, with **Andrei Motchenko**, who tested, edited
+and produced screenshots for the workshop series.
