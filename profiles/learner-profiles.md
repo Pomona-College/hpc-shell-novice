@@ -32,7 +32,7 @@ Sofia is a sophomore biology major at Pomona College working in the ecology lab.
 - Run automated analysis on multiple files
 - Understand what her lab mentor is explaining
 - Gain independence in her research workflow
-- Prepare for future HPC work on Sagehen
+- Prepare for future HPC work on Sagehen HPC
 
 ### Challenges She'll Face
 - Terminal looks intimidating and unfamiliar

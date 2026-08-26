@@ -2,7 +2,7 @@
 title: Setup
 ---
 
-## Connecting from Sagehen
+## Connecting from Sagehen HPC
 
 These commands work in any terminal, including the OnDemand terminal at https://ondemand.hpc.pomona.edu (sign in with your Pomona credentials and DUO MFA at https://duo.pomona.edu). The OnDemand 'Clusters > Sagehen Shell Access' app gives you a browser-based shell with no installation required.
 
