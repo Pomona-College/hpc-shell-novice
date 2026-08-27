@@ -253,7 +253,7 @@ Using the `-l` option with `ls` enables a **l**ong format listing. This doesn't 
 
 Normally, `ls` sorts the contents of a directory alphabetically by their names. However, if you use `ls -t`, it sorts files by the time of their last modification, not alphabetically. On the other hand, `ls -r` displays directory contents in reverse order. What file appears last when you use both the `-t` and `-r` options together? Tip: To view the dates of last modifications, you might need to include the `-l` option.
 
-![Exploring `ls` options on Sagehen: an invalid option error, long and human-readable listings, and time/reverse sorting — note the lab-storage symlinks pointing into /bigdata/lab/.](fig/02-sagehen-ls-options.png){alt='Sagehen terminal session. ls -j fails with invalid option. ls -l and ls -l -h show long-format listings with permissions, owner, group, and symlinks pointing to /bigdata/lab/awilsonlab. ls -t, ls -r, and ls -t -r -l show the same directory sorted by modification time and in reverse.'}
+![Exploring `ls` options on Sagehen HPC: an invalid option error, long and human-readable listings, and time/reverse sorting — note the lab-storage symlinks pointing into /bigdata/lab/.](fig/02-sagehen-ls-options.png){alt='Sagehen terminal session. ls -j fails with invalid option. ls -l and ls -l -h show long-format listings with permissions, owner, group, and symlinks pointing to /bigdata/lab/awilsonlab. ls -t, ls -r, and ls -t -r -l show the same directory sorted by modification time and in reverse.'}
 
 
 :::::::::::::::  solution

@@ -96,7 +96,7 @@ $ ks
 ks: command not found
 ```
 
-![On Sagehen: a first `ls`, then the error the shell prints for a mistyped command.](fig/01-sagehen-ls-command-not-found.png){alt='Terminal on the Sagehen cluster. The ls command lists directories including code, data, projects, and workshop-0. A second command, ks, returns the error bash: ks: command not found, and the prompt returns.'}
+![On Sagehen HPC: a first `ls`, then the error the shell prints for a mistyped command.](fig/01-sagehen-ls-command-not-found.png){alt='Terminal on the Sagehen cluster. The ls command lists directories including code, data, projects, and workshop-0. A second command, ks, returns the error bash: ks: command not found, and the prompt returns.'}
 
 This might happen if the command was mis-typed or if the program corresponding to that command
 is not installed.
@@ -106,7 +106,7 @@ is not installed.
 
 ## Cecil's Pipeline: Solving an Archaeologist's Challenge
 
-Cecil Sagehen, an archaeologist at Pomona College, has just returned from a year-long excavation in the [Göbekli Tepe](https://en.wikipedia.org/wiki/Göbekli_Tepe) region. During his fieldwork, he gathered extensive data on ancient artifacts, amounting to 1520 detailed reports, each documenting different aspects of the findings, including age, origin, and significance. He plans to analyze the relative age distribution of these artifacts using a specialized analysis tool called `ancientstats.sh`. Additionally, Cecil aims to publish his findings in the upcoming special issue of *Archaeological Insights* by the end of the month.
+Cecil Sagehen HPC, an archaeologist at Pomona College, has just returned from a year-long excavation in the [Göbekli Tepe](https://en.wikipedia.org/wiki/Göbekli_Tepe) region. During his fieldwork, he gathered extensive data on ancient artifacts, amounting to 1520 detailed reports, each documenting different aspects of the findings, including age, origin, and significance. He plans to analyze the relative age distribution of these artifacts using a specialized analysis tool called `ancientstats.sh`. Additionally, Cecil aims to publish his findings in the upcoming special issue of *Archaeological Insights* by the end of the month.
 
 Manually running `ancientstats.sh` for each of the 1520 reports would be extremely time-consuming. If each analysis takes 30 seconds, processing all files by hand using a GUI would demand over 12 hours of Cecil's focus. However, by leveraging the shell, Cecil can delegate this tedious job to his computer, freeing up his time to concentrate on drafting his research paper.
 
